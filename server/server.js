@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');;
 const app = express();
 
-const UserController = require('./controllers/UserController')
+const userRouter = require('./routes/userRouter');
 
 const PORT = 3000;
 const mongoURI = "mongodb+srv://codesmith:cs@cluster0.di70nhs.mongodb.net/?retryWrites=true&w=majority";
@@ -17,30 +17,12 @@ mongoose.connect(mongoURI, {
 .then(()=>console.log('Connected to Mongo DB'))
 .catch(err=>console.log(`Error connecting to MongoDB: ${err}`));
 
-
 // need to determine how we are parsing data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// set userRouter
-const userRouter = express.Router();
-app.use('/', userRouter);
-
-// Create a user in the database
-userRouter.post('/', UserController.createUser, 
-  (req, res) => res.status(201).json(res.locals.newUser));
-
-// Get user from the database
-userRouter.get('/:username', UserController.getUser,
-  (req, res) => res.status(200).json(res.locals.user));
-
-// Update a user in the database
-userRouter.patch('/:username', UserController.addFavorite,
-  (req, res) => res.status(200).json(res.locals.updatedUser));
-
-// Deletes a user from the database
-userRouter.delete('/:username', UserController.deleteUser,
-  (req, res) => res.status(200).json(res.locals.deletedUser));
+// set userRouter with /user endpoint
+app.use('/user', userRouter);
 
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));
