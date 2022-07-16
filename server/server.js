@@ -36,7 +36,11 @@ userRouter.get('/:username', UserController.getUser,
 
 // Update a user in the database
 userRouter.patch('/:username', UserController.addFavorite,
-  (req, res) => res.status(200));
+  (req, res) => res.status(200).json(res.locals.updatedUser));
+
+// Deletes a user from the database
+userRouter.delete('/:username', UserController.deleteUser,
+  (req, res) => res.status(200).json(res.locals.deletedUser));
 
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));

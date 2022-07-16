@@ -14,7 +14,7 @@ const UserController = {
     User.create( { username, password, zipcode, birthday, cookie } ) 
       .then(data => {
         res.locals.newUser = data;
-        console.log(data);
+        console.log('New User: ',data);
         return next();
       })
       .catch(err => {
@@ -36,7 +36,7 @@ const UserController = {
     User.findOne({username: username})
       .then(data => {
         res.locals.user = data;
-        console.log(data);
+        console.log('Found user: ',data);
         return next();
       })
       .catch(err => {
@@ -48,7 +48,7 @@ const UserController = {
       });
   },
 
-  // add a favorite workspace to the user favorites list
+  // Adds a favorite workspace to the user favorites list
   // username will be the parameter and the workspace_id will be in the body
   addFavorite(req, res, next) {
     const { username } = req.params;
@@ -60,14 +60,37 @@ const UserController = {
     User.findOneAndUpdate({ username: username }, { "$push": { favorites: workspace_id }})
       .then(data => {
         res.locals.updatedUser = data;
-        console.log(data);
+        console.log('Updated user: ', data);
         return next();
       })
       .catch(err => {
         return next({
-          log: `Error caught in addFavorite method of Usercontroller : ${err}`,
+          log: `Error caught in addFavorite method of UserController : ${err}`,
           status: 400,
           message: { err: 'An error occured when trying to add a new favorite'}
+        })
+      });
+  },
+
+  // Deletes the user from the database
+  // username will be the parameter
+  deleteUser(req, res, next) {
+    // deconstruct the username from params
+    const { username } = req.params;
+
+    // find user based on user params and delete
+    // will return the deleted username - don't need to do anything with it
+    User.findOneAndDelete({username: username})
+      .then(data => {
+        res.locals.deletedUser = data;
+        console.log('Deleted user: ', data);
+        return next();
+      })
+      .catch(err => {
+        return next({
+          log: `Error caught in the deleteUser method of UserController : ${err}`,
+          status: 400,
+          message: { err : 'An error occured when trying to delete a user'}
         })
       });
   }
