@@ -6,8 +6,6 @@ const app = express();
 
 const PORT = 3000;
 
-// const mongoURI = "mongodb+srv://codesmith:cs@cluster0.di70nhs.mongodb.net/?retryWrites=true&w=majority";
-
 // need to determine how we are parsing data
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
