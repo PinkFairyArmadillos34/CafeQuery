@@ -14,7 +14,7 @@ const userSchema = new Schema({
     required: true
   },
   zipcode: {
-    type: Number,
+    type: String,
     required: true
   },
   birthday: {
@@ -27,8 +27,12 @@ const userSchema = new Schema({
 
 // Schema for 'workspaces' collection
 const workspaceSchema = new Schema({
+  workspaceName: {
+    type: String,
+    required: true
+  },
   zipcode: {
-    type: Number,
+    type: String,
     required: true
   },
   address: {
