@@ -62,8 +62,8 @@ const workspacesSchema = new Schema({
 });
 
 // creates models for collections to export
-const Users = mongoose.model('users', usersSchema);
-const Workspaces = mongoose.model('workspaces', workspacesSchema);
+const Users = mongoose.model('Users', usersSchema);
+const Workspaces = mongoose.model('Workspaces', workspacesSchema);
 
 // exports all models in an object to be used in the controller
 module.exports = {
