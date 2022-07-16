@@ -4,6 +4,7 @@ const path = require('path');;
 const app = express();
 
 const userRouter = require('./routes/userRouter');
+const workspaceRouter = require('./routes/workspaceRouter');
 
 const PORT = 3000;
 const mongoURI = "mongodb+srv://codesmith:cs@cluster0.di70nhs.mongodb.net/?retryWrites=true&w=majority";
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // set userRouter with /user endpoint
 app.use('/user', userRouter);
+app.use('/workspace', workspaceRouter);
 
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));
