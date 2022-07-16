@@ -1,11 +1,10 @@
 const { request } = require('express');
-const { Users, User } = require('../models/dbModels');
+const { User } = require('../models/dbModels');
 
 const UserController = {
 
-  // create a new user in the database
+  // Create a new user in the database
   // information will be sent in the request body
-  // will send back the created user object
   createUser(req, res, next) {
     // deconstruct the req body (excluding favorites since not part of signup)
     const { username, password, zipcode, birthday, cookie } = req.body;
@@ -26,9 +25,8 @@ const UserController = {
       });
   },
 
-  // get a user's information from the database
-  // username will be the paramater 'username'
-  // 
+  // Grab user information from the database
+  // username will be the parameter
   getUser(req, res, next) {
     // deconstruct the username that will be sent in the request parameter
     const { username } = req.params;
