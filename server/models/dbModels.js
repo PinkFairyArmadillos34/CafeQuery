@@ -14,7 +14,7 @@ const userSchema = new Schema({
     required: true
   },
   zipcode: {
-    type: Number,
+    type: String,
     required: true
   },
   birthday: {
@@ -27,8 +27,12 @@ const userSchema = new Schema({
 
 // Schema for 'workspaces' collection
 const workspaceSchema = new Schema({
+  workspaceName: {
+    type: String,
+    required: true
+  },
   zipcode: {
-    type: Number,
+    type: String,
     required: true
   },
   address: {
@@ -62,8 +66,8 @@ const workspaceSchema = new Schema({
 });
 
 // creates models for collections to export
-const User = mongoose.model('User', userSchema);
-const Workspace = mongoose.model('Workspace', workspaceSchema);
+const User = mongoose.model('user', userSchema);
+const Workspace = mongoose.model('workspace', workspaceSchema);
 
 // exports all models in an object to be used in the controller
 module.exports = {
