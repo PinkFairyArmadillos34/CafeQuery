@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');;
+const fetch = require("node-fetch");
+const webpackProcess = require('../webpack.config');
+
+
 const app = express();
 
 const userRouter = require('./routes/userRouter');
@@ -40,6 +44,16 @@ app.use((err, req, res, next) => {
   console.log(errorObj);
   return res.status(errorObj.status).json(errorObj.message);
 });
+
+
+if (process.env.NODE_ENV === 'production'){
+  // statically serve everything in the dist folder on the route '/dist'
+  app.use('/dist', express.static(path.join(__dirname, '../dist')));
+  // serve index.html on the route '/'
+  app.get('/', (req, res) => {
+    return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+  });
+}
 
 // Start server
 app.listen(PORT, () => {
