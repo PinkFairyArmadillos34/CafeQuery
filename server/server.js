@@ -28,10 +28,11 @@ app.use('/', userRouter);
 
 // Create a user in the database
 userRouter.post('/', UserController.createUser, 
-  (req, res) => res.status(201).json(res.locals.user));
+  (req, res) => res.status(201).json(res.locals.newUser));
 
 // Get user from the database
-userRouter.get('/:username', UserController.getUser)
+userRouter.get('/:username', UserController.getUser,
+  (req, res) => res.status(200).json(res.locals.user));
 
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));
