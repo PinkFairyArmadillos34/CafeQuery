@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   
-  mode: process.env.NODE_ENV,
+  mode: process.env.NODE_ENV || "production",
 
   entry: [
     'react-hot-loader/patch',
-    './src/index.js'
+    './src/index'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -70,16 +70,17 @@ const config = {
     ]
   },
   devServer: {
-    'static': {
-      directory: './dist'
-    }
+    static: {
+      directory: path.join(__dirname, 'src'),
+      publicPath: '/',
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      templateContent: ({ htmlWebpackPlugin }) => '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>' + htmlWebpackPlugin.options.title + '</title></head><body><div id=\"app\"></div></body></html>',
+      template: path.resolve(__dirname, '/index.html'),
       filename: 'index.html',
-    })
-  ]
+    }),
+  ],
 };
 
 module.exports = config;
