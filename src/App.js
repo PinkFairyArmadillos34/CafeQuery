@@ -7,9 +7,15 @@ import AddSpaceReview from './components/AddSpaceReview';
 import DisplaySpaces from './components/DisplaySpaces';
 import HomePage from './components/HomePage';
 
+import Login from "./components/Login";
+
 function App()  {
     return (
-      <a>hi</a>
+      <div>
+        <a>hihi</a>
+        <Login />
+      </div>
+      
     //  <Router>
     //   <nav className = "navbar">
     //     <div className="navbar-nav">
