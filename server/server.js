@@ -1,13 +1,28 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');;
-
 const app = express();
 
 const PORT = 3000;
+const mongoURI = "mongodb+srv://codesmith:cs@cluster0.di70nhs.mongodb.net/?retryWrites=true&w=majority";
+
+// Connect to MongoDB 
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: 'db'
+})
+.then(()=>console.log('Connected to Mongo DB'))
+.catch(err=>console.log(`Error connecting to MongoDB: ${err}`));
+
 
 // need to determine how we are parsing data
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+
+
 
 
 // Global Error Handler
