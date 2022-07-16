@@ -1,7 +1,7 @@
 
 import React from "react";
 import { hot } from 'react-hot-loader/root';
-import { BroswerRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSpaceReview from './components/AddSpaceReview';
@@ -31,11 +31,11 @@ function App()  {
         </div>
       </nav>
       <div className="container mt-3">
-        <Switch>
+        <Routes>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/display" component={DisplaySpaces} />
           <Route exact path="/add" component={AddSpaceReview} />
-        </Switch>
+        </Routes>
       </div>
      </Router>
     );
