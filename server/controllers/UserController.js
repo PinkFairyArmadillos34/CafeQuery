@@ -10,7 +10,7 @@ const UserController = {
     const { username, password, zipcode, birthday, cookie } = req.body;
 
     // add user to the database
-    Users.create( { username, password, zipcode, birthday, cookie } ) 
+    User.create( { username, password, zipcode, birthday, cookie } ) 
       .then(data => {
         res.locals.user = data;
         console.log(data);
@@ -23,7 +23,16 @@ const UserController = {
           message: { err : 'An error occurred while creating a new user'}
         });
       });
+  },
+
+  // get a user's information from the database
+  // username will be the paramater 'username'
+  // 
+  getUser(req, res, next) {
+
   }
+
+
 }
 
 module.exports = UserController;

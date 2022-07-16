@@ -22,12 +22,16 @@ mongoose.connect(mongoURI, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// set userRouter
 const userRouter = express.Router();
 app.use('/', userRouter);
 
 // Create a user in the database
 userRouter.post('/', UserController.createUser, 
   (req, res) => res.status(201).json(res.locals.user));
+
+// Get user from the database
+userRouter.get('/:username', UserController.getUser)
 
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));

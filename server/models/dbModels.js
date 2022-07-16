@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 // set up a Schema for 'users' collection
-const usersSchema = new Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true
@@ -26,7 +26,7 @@ const usersSchema = new Schema({
 });
 
 // Schema for 'workspaces' collection
-const workspacesSchema = new Schema({
+const workspaceSchema = new Schema({
   zipcode: {
     type: Number,
     required: true
@@ -62,11 +62,11 @@ const workspacesSchema = new Schema({
 });
 
 // creates models for collections to export
-const Users = mongoose.model('Users', usersSchema);
-const Workspaces = mongoose.model('Workspaces', workspacesSchema);
+const User = mongoose.model('User', userSchema);
+const Workspace = mongoose.model('Workspace', workspaceSchema);
 
 // exports all models in an object to be used in the controller
 module.exports = {
-  Users,
-  Workspaces
+  User,
+  Workspace
 }
