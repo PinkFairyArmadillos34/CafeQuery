@@ -1,5 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const path = require('path');;
 
 const app = express();
@@ -27,3 +26,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);
 })
+
+module.exports = app;
