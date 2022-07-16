@@ -5,7 +5,10 @@ this file:
 (3) exports setMessage/clearmessage action creators. 
 */
 
+//toolkit method that auto-generates action types and action creators for each reducer names
 import { createSlice } from '@reduxjs/toolkit';
+
+
 const initialState = {};
 const messageSlice = createSlice({
   name: 'message',
