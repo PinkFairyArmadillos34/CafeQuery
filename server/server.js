@@ -34,6 +34,10 @@ userRouter.post('/', UserController.createUser,
 userRouter.get('/:username', UserController.getUser,
   (req, res) => res.status(200).json(res.locals.user));
 
+// Update a user in the database
+userRouter.patch('/:username', UserController.addFavorite,
+  (req, res) => res.status(200));
+
 // unknown route handler
 app.use((req, res) => res.sendStatus(404));
 

@@ -1,3 +1,4 @@
+const { request } = require('express');
 const { Users, User } = require('../models/dbModels');
 
 const UserController = {
@@ -44,6 +45,30 @@ const UserController = {
           status: 400,
           message: { err: 'An error occured while trying to get user'}
         });
+      });
+  },
+
+  // add a favorite workspace to the user favorites list
+  // username will be the parameter and the workspace_id will be in the body
+  addFavorite(req, res, next) {
+    const { username } = req.params;
+    // unsure if should use workspace name or wor
+    const { workspace_id } = req.body;
+
+    // find based on username param
+    // push the workspace_id to the favorites array
+    User.findOneAndUpdate({ username: username }, { "$push": { favorites: workspace_id }})
+      .then(data => {
+        res.locals.updatedUser = data;
+        console.log(data);
+        return next();
+      })
+      .catch(err => {
+        return next({
+          log: `Error caught in addFavorite method of Usercontroller : ${err}`,
+          status: 400,
+          message: { err: 'An error occured when trying to add a new favorite'}
+        })
       });
   }
 }
