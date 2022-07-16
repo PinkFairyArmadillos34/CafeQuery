@@ -7,7 +7,6 @@ const config = {
   mode: process.env.NODE_ENV || "production",
 
   entry: [
-    'react-hot-loader/patch',
     './src/index'
   ],
   output: {
