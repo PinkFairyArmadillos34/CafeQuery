@@ -9,8 +9,16 @@ const addSpaceReview = () => {
     const [type, setType] = useState('');
     const [noise, setNoise] = useState('');
     const [outlets, setOutlets] = useState('');
-
-    const [checked, setChecked] = useState(false);
+    const [time, setTime] = useState('');
+    const [laptopChecked, setLaptop] = useState(false);
+    const [busy, setBusy] = useState('');
+    const [outdoorChecked, setOutdoor] = useState(false);
+    const [petChecked, setPetFriendly] = useState(false);
+    const [url, setUrlAddress] = useState('');
+    const [food, setFood] = useState('');
+    const [coffee, setCoffee] = useState('');
+    const [seating, setSeating] = useState('');
+    const [additional, setAdditional] = useState('');
 
     return (
         <div className='review'>
@@ -156,7 +164,7 @@ const addSpaceReview = () => {
             <label>
                 Coffee Rating:
                 <select 
-                value={rating}
+                value={coffee}
                 onChange={(e) => setCoffee(e.target.value)}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -187,8 +195,8 @@ const addSpaceReview = () => {
         </div>
       );
     };
-}
 
+export default addSpaceReview;
 
   
 
@@ -198,5 +206,3 @@ const addSpaceReview = () => {
  
   
  
-  seating: String,
-  other: String,
