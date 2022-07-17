@@ -5,7 +5,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSpaceReview from './components/AddSpaceReview';
 import DisplaySpaces from './components/DisplaySpaces';
-import HomePage from './components/HomePage';
+import HomePage from './containers/HomePage';
 
 import Login from "./components/Login";
 
