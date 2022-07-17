@@ -24,6 +24,14 @@
          ...state
        };
      }
+
+     case types.FIND_SPACE: {
+
+
+      return {
+        ...state
+      };
+     }
        
      case types.SET_NEW_LOCATION: {
        return {

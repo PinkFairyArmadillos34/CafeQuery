@@ -4,46 +4,30 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSpaceReview from './components/AddSpaceReview';
-import DisplaySpaces from './components/DisplaySpaces';
+import DisplayContainer from './containers/DisplayContainer';
 import HomePage from './containers/HomePage';
-
 import Login from "./components/Login";
 
 function App()  {
     return (
-      <div>
-        <a>hihi</a>
-        <Login />
-      </div>
-      
-    //  <Router>
-    //   <nav className = "navbar">
-    //     <div className="navbar-nav">
-    //     <li className="nav-item>">
-    //         <Link to={"/"} className ="nav-link">
-    //           Home Page
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item>">
-    //         <Link to={"/display"} className ="nav-link">
-    //           Locations
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item">
-    //         <Link to={"/add"} className="nav-link">
-    //           Add a location
-    //         </Link>
-    //       </li>
-    //     </div>
-    //   </nav>
-    //   <div className="container mt-3">
-    //     <Routes>
-    //       <Route exact path="/" component={HomePage} />
-    //       <Route exact path="/display" component={DisplaySpaces} />
-    //       <Route exact path="/add" component={AddSpaceReview} />
-    //     </Routes>
-    //   </div>
-    //  </Router>
+      // <div>
+      //   <a>hihi</a>
+      //   <Login />
+      // </div>
+      <> 
+        <Router>
+          <Routes>
+            <Route exact path='/' component ={HomePage} />
+            <Route exact path='/display' component ={DisplayContainer} />
+            <Route exact path= '/add' component ={AddSpaceReview} />
+            <Route exact path= '/logIn' component ={Login} />
+            {/*If any route mismatches the upper route endpoints then redirect triggers and redirects
+            app to home component*/}
+            <Redirect to='/' />
+          </Routes>
+        </Router>
+       </>
+   
     );
 }
 
