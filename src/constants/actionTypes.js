@@ -9,3 +9,4 @@ export const ADD_SPACE = "ADD_SPACE";
 export const SET_NEW_LOCATION = "SET_NEW_LOCATION";
 export const UPDATE_SPACE= "UPDATE_SPACE";
 export const DELETE_SPACE = "DELETE_SPACE";
+export const FIND_SPACE = "FIND_SPACE";
