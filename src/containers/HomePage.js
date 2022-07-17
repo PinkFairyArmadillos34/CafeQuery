@@ -1,10 +1,14 @@
 // moved to containers section, per definition this will be the stateful component passing props to the others - Lyam
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as actions from '../actions';
+//import * as actions from '../actions';
 
 class HomePage extends Component {
+    constructor(){
+        super();
+    }
+    
     render() {
         return (
             <div>

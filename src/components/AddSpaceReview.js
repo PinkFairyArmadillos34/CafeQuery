@@ -74,16 +74,6 @@ const addSpaceReview = () => {
                 </select>
             </label>
             <label>
-            Type:
-                <select 
-                value={type}
-                onChange={(e) => setType(e.target.value)}>
-                <option value='Cafe'>Cafe</option>
-                <option value='Bar'>Bar</option>
-                <option value='Restaurant'>Restaurant</option>
-                </select>
-            </label>
-            <label>
             Noise level:
                 <select 
                 value={noise}
@@ -180,7 +170,7 @@ const addSpaceReview = () => {
                 onChange={(e) => setSeating(e.target.value)}>
                 <option value='Small'>0 - 10</option>
                 <option value='Medium'>10 - 25 </option>
-                <option value='Large'>25 -40</option>
+                <option value='Large'>25 - 40</option>
                 </select>
             </label>
             <input
@@ -195,7 +185,7 @@ const addSpaceReview = () => {
         </div>
       );
     };
-
+//submit post to db on submit
 export default addSpaceReview;
 
   
