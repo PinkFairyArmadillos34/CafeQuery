@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import fetch from 'node-fetch';
 
 const addSpaceReview = () => {
     const [name, setName] = useState('');
@@ -20,9 +21,8 @@ const addSpaceReview = () => {
     const [seating, setSeating] = useState('');
     const [additional, setAdditional] = useState('');
 
-
     // function to handle button click for add Space
-    const handleAddSpace = (event) => {
+    const handleAddSpace = async (event) => {
       // we want to pass all of the input values to an object to pass to the db
       const inputObj = {
         'workspaceName': name,
@@ -45,18 +45,29 @@ const addSpaceReview = () => {
         'other': additional
       };
 
-      fetch("http://localhost:3000/workspace", {
-        method: "POST",
-        body: inputObj,
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-        }
-      })
-      .then (res => {
-        console.log(res);
-        res.json();
-      })
-      .catch(err => console.log(err))
+      // const response = await fetch('http://localhost:3000/workspace/', {
+      //   method: 'POST',
+      //   body: JSON.stringify(inputObj),
+      //   headers: {'Content-Type': 'application/json'}
+      // });
+
+      // const data = await response.json();
+
+      // console.log(data);
+
+      
+      // fetch("/workspace", {
+      //   method: "POST",
+      //   body: JSON.stringify(inputObj),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   }
+      // })
+      // .then (res => {
+      //   console.log(res);
+      //   res.json();
+      // })
+      // .catch(err => console.log(err))
     }
 
     return (
