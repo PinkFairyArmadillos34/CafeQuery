@@ -2,7 +2,6 @@
 //import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import * as actions from '../actions';
 
 class HomePage extends Component {
     constructor(){
