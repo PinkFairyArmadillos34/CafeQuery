@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import fetch from 'node-fetch';
+import axios from 'axios';
 
 const addSpaceReview = () => {
     const [name, setName] = useState('');
@@ -22,7 +23,7 @@ const addSpaceReview = () => {
     const [additional, setAdditional] = useState('');
 
     // function to handle button click for add Space
-    const handleAddSpace = async (event) => {
+    const handleAddSpace = (event) => {
       // we want to pass all of the input values to an object to pass to the db
       const inputObj = {
         'workspaceName': name,
@@ -45,31 +46,16 @@ const addSpaceReview = () => {
         'other': additional
       };
 
-      // const response = await fetch('http://localhost:3000/workspace/', {
-      //   method: 'POST',
-      //   body: JSON.stringify(inputObj),
-      //   headers: {'Content-Type': 'application/json'}
-      // });
-
-      // const data = await response.json();
-
-      // console.log(data);
-
-      
-      // fetch("/workspace", {
-      //   method: "POST",
-      //   body: JSON.stringify(inputObj),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-      // .then (res => {
-      //   console.log(res);
-      //   res.json();
-      // })
-      // .catch(err => console.log(err))
+      // send POST request to server with new workspace info in body
+      axios.post('/workspace', inputObj)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        })
     }
-
+    
     return (
         <div className='review'>
           <form className='location_submission'>
