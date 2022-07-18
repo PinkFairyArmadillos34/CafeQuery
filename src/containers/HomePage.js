@@ -16,6 +16,7 @@ class HomePage extends Component {
         return (
             <>
             <Navbar className="navbar" expand="lg">
+            <img src="./containers/option1.png" className="icon" alt=""/>
             <LinkContainer to="/">
   <Navbar.Brand>CafeQuery</Navbar.Brand>
   
@@ -40,33 +41,20 @@ class HomePage extends Component {
 </Navbar>
 
 <div className="searchForm">
-        <input type="search" placeholder="Search" className="search-field" />
+        <input type="search" placeholder="Search for a cafe or zipcode..." className="search-field" />
         <button type="submit" className="search-button">
           <img src="search.png"/>
         </button>
       </div>
+
+      <div className="appDescription">
+        <p>Looking for a place to work or study remotely? <br></br> 
+        <br></br>Use CafeQuery to search for a specific cafe, restaurant, or bar to see reviews from other remote workers. <br></br><br></br> You can also look up your zipcode to find workspaces near you!</p>
+      </div>
               </>
         );
 
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <br />
-        <ul>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-          <li>
-            <Link to='/display'>Find a location</Link>
-          </li>
-          <li>
-            <Link to='/add'>Add a location</Link>
-          </li>
-        </ul>
-      </div>
-    );
-  }
+}
 }
 
 export default HomePage;

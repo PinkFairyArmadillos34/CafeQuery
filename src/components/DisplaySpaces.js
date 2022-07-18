@@ -10,7 +10,8 @@ const displaySpaces = (props) => {
   return(
     <>
     <Navbar className="navbar" expand="lg">
-            <LinkContainer to="/">
+    <img src="./components/option1.png" className="icon" alt=""/>
+    <LinkContainer to="/">
   <Navbar.Brand>CafeQuery</Navbar.Brand>
   
   </LinkContainer>
