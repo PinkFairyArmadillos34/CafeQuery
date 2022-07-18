@@ -1,45 +1,27 @@
 
 import React from "react";
-import { hot } from 'react-hot-loader/root';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddSpaceReview from './components/AddSpaceReview';
-import DisplaySpaces from './components/DisplaySpaces';
-import HomePage from './components/HomePage';
+//import DisplayContainer from './containers/DisplayContainer';
+import HomePage from './containers/HomePage';
+import Login from "./components/Login";
 
 function App()  {
     return (
-     <Router>
-      <nav className = "navbar">
-        <div className="navbar-nav">
-        <li className="nav-item>">
-            <Link to={"/"} className ="nav-link">
-              Home Page
-            </Link>
-          </li>
-          <li className="nav-item>">
-            <Link to={"/display"} className ="nav-link">
-              Locations
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to={"/add"} className="nav-link">
-              Add a location
-            </Link>
-          </li>
-        </div>
-      </nav>
-      <div className="container mt-3">
-        <Routes>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/display" component={DisplaySpaces} />
-          <Route exact path="/add" component={AddSpaceReview} />
-        </Routes>
-      </div>
-     </Router>
+        <Router>
+          <Routes>
+            <Route path='/' element={<App />}></Route>
+              <Route index element ={< HomePage />}></Route>
+              <Route path='display' element ={< DisplayContainer />}></Route>
+              <Route path= 'add' element ={< AddSpaceReview />}></Route>
+              <Route path= 'logIn' element ={< Login />}></Route>
+          </Routes>
+        </Router>
+   
     );
-}
+};
 
 
-export default hot(App);
+export default App;
