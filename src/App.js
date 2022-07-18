@@ -10,26 +10,18 @@ import Login from "./components/Login";
 
 function App()  {
     return (
-      // <div>
-      //   <a>hihi</a>
-      //   <Login />
-      // </div>
-      <> 
         <Router>
           <Routes>
-            <Route exact path='/' component ={HomePage} />
-            <Route exact path='/display' component ={DisplayContainer} />
-            <Route exact path= '/add' component ={AddSpaceReview} />
-            <Route exact path= '/logIn' component ={Login} />
-            {/*If any route mismatches the upper route endpoints then redirect triggers and redirects
-            app to home component*/}
-            <Redirect to='/' />
+            <Route path='/' element={<App />}></Route>
+              <Route index element ={< HomePage />}></Route>
+              <Route path='display' element ={< DisplayContainer />}></Route>
+              <Route path= 'add' element ={< AddSpaceReview />}></Route>
+              <Route path= 'logIn' element ={< Login />}></Route>
           </Routes>
         </Router>
-       </>
    
     );
-}
+};
 
 
 export default App;
