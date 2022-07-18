@@ -18,4 +18,4 @@
    composedEnhancer
  );
  
- 
+ export default store; 
