@@ -20,22 +20,61 @@ const addSpaceReview = () => {
     const [seating, setSeating] = useState('');
     const [additional, setAdditional] = useState('');
 
+
+    // function to handle button click for add Space
+    const handleAddSpace = (event) => {
+      // we want to pass all of the input values to an object to pass to the db
+      const inputObj = {
+        'workspaceName': name,
+        'zipcode': zipCode,
+        'address': address,
+        'rating': rating,
+        'wifi': wifi,
+        'type': type,
+        'quiet': noise,
+        'outlets': outlets,
+        'timeLimit': time,
+        'laptopRestrictions': laptopChecked,
+        'crowded': busy,
+        'outdoorSeating': outdoorChecked,
+        'petFriendly': petChecked,
+        'url': url,
+        'foodRating': coffee,
+        'coffeeRating': food,
+        'seating': seating,
+        'other': additional
+      };
+
+      fetch("http://localhost:3000/workspace", {
+        method: "POST",
+        body: inputObj,
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        }
+      })
+      .then (res => {
+        console.log(res);
+        res.json();
+      })
+      .catch(err => console.log(err))
+    }
+
     return (
         <div className='review'>
           <form className='location_submission'>
             <h1>Add a location</h1>
             <input
-              type='name'
+              type='text'
               placeholder='Name'
               value={name}
               onChange={(e) => setName(e.target.value)} />
             <input
-              type='address'
+              type='text'
               placeholder='Street address'
               value={address}
               onChange={(e) => setAddress(e.target.value)}/>
             <input
-              type='zipCode'
+              type='text'
               placeholder='Zip code'
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
@@ -49,7 +88,7 @@ const addSpaceReview = () => {
                 <option value='2'>2</option>
                 <option value='3'>3</option>
                 <option value='4'>4</option>
-                <option value='5'>5</option>  
+                <option value='5'>5</option> 
                 </select>
             </label>
             <label>
@@ -178,7 +217,7 @@ const addSpaceReview = () => {
               placeholder='Other'
               value={additional}
               onChange={(e) => setAdditional(e.target.value)} />
-            <button type='submit' className='submit_btn'>
+            <button onClick={handleAddSpace} type='submit' className='submit_btn'>
                 Submit
             </button>
           </form>
