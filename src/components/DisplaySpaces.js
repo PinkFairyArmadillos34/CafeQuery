@@ -8,30 +8,7 @@ const DisplaySpaces = (props) => {
 //from the databse query to locations
 
   return(
-//     <>
-//     <Navbar className="navbar" expand="lg">
-//             <LinkContainer to="/">
-//   <Navbar.Brand>CafeQuery</Navbar.Brand>
-  
-//   </LinkContainer>
-//   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//   <Navbar.Collapse id="basic-navbar-nav">
-//     <Nav className="homepage">
-//     <LinkContainer to="/">
-//       <Nav.Link>Find A Location</Nav.Link>
-//       </LinkContainer>
 
-//       <LinkContainer to="/add">
-//       <Nav.Link>Add a Location</Nav.Link>
-//       </LinkContainer>
-
-//       <LinkContainer to="/logIn">
-//       <Nav.Link>Log In/Sign Up</Nav.Link>
-//       </LinkContainer>
-     
-//     </Nav>
-//   </Navbar.Collapse>
-// </Navbar>
 <>
     <div className="LocationDisplay">
       <h4>Name: {props.resultObject.workspaceName}</h4>
