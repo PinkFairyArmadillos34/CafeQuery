@@ -17,7 +17,7 @@ class HomePage extends Component {
             <>
             <Navbar className="navbar" expand="lg">
             <LinkContainer to="/">
-  <Navbar.Brand>CafeQuery</Navbar.Brand>
+            <Navbar.Brand>CafeQuery</Navbar.Brand>
   
   </LinkContainer>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -47,26 +47,7 @@ class HomePage extends Component {
       </div>
               </>
         );
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <br />
-        <ul>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-          <li>
-            <Link to='/display'>Find a location</Link>
-          </li>
-          <li>
-            <Link to='/add'>Add a location</Link>
-          </li>
-        </ul>
-      </div>
-    );
-  }
+    }
 }
 
 export default HomePage;

@@ -27,7 +27,7 @@ class DisplayContainer extends Component {
     //Add logic to fill out location array from async call to receive locations from the database
 
     render() {
-        const locationArray = [];
+        const locationArray = []; 
         for (let i = 0; i < this.state.locations.length; i++){
          //pass in response body into as props to display spaces
           locationArray.push(<DisplaySpaces key ={this.state.locations[i]} resultObject ={this.state.locations[i]} />);
