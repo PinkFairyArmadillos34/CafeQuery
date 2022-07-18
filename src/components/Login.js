@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Navbar, Nav} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap'
@@ -5,8 +6,12 @@ import {LinkContainer} from 'react-router-bootstrap'
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [zipcode, setZipcode] = useState('');
 
-  //add axios call to check user credentials against db on click of submit
+  // onclick function to send post request to server
+  // if login is successful, do we need to add a cookie to local storage?
+  // on signup, do we need to create and store a cookie for the user?
+  // add axios call to check user credentials against db on click of submit
   const handleLogin = (event) => {
     // prevent page reload
     event.preventDefault();
@@ -68,8 +73,14 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <input
+          type='text'
+          placeholder='Zip Code'
+          value={zipcode}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button onClick={handleLogin} type='submit' className='submit_btn'>
-          Submit
+            Submit
         </button>
       </form>
     </div>
