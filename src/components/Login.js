@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  //add axios call to check user credentials against db on click of submit
+  const handleLogin = (event) => {
+    // prevent page reload
+    event.preventDefault();
+
+    const loginObj = {
+      username: username,
+      password: password,
+    };
+
+    axios
+      .get(`/user/${username}`)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className='login'>
       <form className='login_form'>
         <h1>Login Here</h1>
         <input
-          type='name'
-          placeholder='Name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
           type='email'
-          placeholder='Email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder='Username'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type='password'
@@ -27,8 +42,8 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type='submit' className='submit_btn'>
-            Submit
+        <button onClick={handleLogin} type='submit' className='submit_btn'>
+          Submit
         </button>
       </form>
     </div>
