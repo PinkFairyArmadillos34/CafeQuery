@@ -54,18 +54,29 @@ const WorkspaceController = {
     console.log('Reached the get workspace by zip middleware.');
 
     const { zipcodeSearch } = req.params;
-    if (typeof zipcodeSearch !== 'string' || zipcodeSearch.length !== 5){
-      return next({log: `User input error: entered input was less than 5 digits`,
-       message: {err: 'Please enter a 5 digit zipcode'}})
-    };
 
+    if (typeof zipcodeSearch !== 'string' || zipcodeSearch.length !== 5){
+      return next({
+        log: `User input error: entered input was less than 5 digits`,
+        status: 400,
+        message: {err: 'Please enter a 5 digit zipcode'}})
+    };
 
     // finds workspace from the database
     Workspace.find({zipcode: zipcodeSearch})
       .then(data => {
-        res.locals.workspace = data;
-        console.log('Found workspace: ',data);
-        return next();
+        if (data.length > 0) {
+          res.locals.workspace = data;
+          // console.log('Found workspace:', res.locals.workspace);
+          return next();
+        }
+        else {
+          return next({
+            log: `No locations found in that zip code.`,
+            status: 400,
+            message: {err: 'No locations found in that zip code.'}
+          })
+        }
       })
       .catch(err => {
         return next({
