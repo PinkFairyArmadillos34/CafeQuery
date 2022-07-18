@@ -9,8 +9,8 @@ import store from './store';
 
 render(
 //wrap the App in the Provider Component and pass in the store
-<Provider store={store}>
+  <Provider store={store}>
   <App />
-</Provider>,
+   </Provider>,
   document.getElementById('root')
 );
