@@ -32,13 +32,6 @@
         ...state
       };
      }
-       
-     case types.SET_NEW_LOCATION: {
-       return {
-         ...state,
-         newLocation: action.payload
-       }
-     }
      
      case types.UPDATE_SPACE: { 
        
