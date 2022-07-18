@@ -33,16 +33,17 @@ const Login = () => {
 
   return (
     <>
-      <Navbar className="navbar" expand="lg">
+     <Navbar className="navbar" expand="lg">
+     <img src="./components/option1.png" className="icon" alt=""/>
 
-      <LinkContainer to="/">
-        <Navbar.Brand>CafeQuery</Navbar.Brand>
-      </LinkContainer>
-
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="homepage">
-      <LinkContainer to="/">
+            <LinkContainer to="/">
+  <Navbar.Brand>CafeQuery</Navbar.Brand>
+  
+  </LinkContainer>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="homepage">
+    <LinkContainer to="/">
       <Nav.Link>Find A Location</Nav.Link>
       </LinkContainer>
 
