@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React from 'react';
+import React, {Component} from 'react';
 //import * as actions from '../actions';
 
 class DisplayContainer extends Component {
@@ -11,14 +11,14 @@ class DisplayContainer extends Component {
         }
     }
 
-    componentDidUpdate() {
-        fetch(//query database based on zip code entered)
-          .then(response => response.json())
-          .then(result => {this.setState({locations: result});})
-          //error handling
-          .catch(error => {console.log('Error:', error);});
+    // componentDidUpdate() {
+    //     fetch(//query database based on zip code entered)
+    //       .then(response => response.json())
+    //       .then(result => {this.setState({locations: result});})
+    //       //error handling
+    //       .catch(error => {console.log('Error:', error);});
         
-      }
+    //   }
 
     //Add logic to fill out location array from async call to receive locations from the database
 
@@ -38,4 +38,5 @@ class DisplayContainer extends Component {
       }
     }
 
+export default DisplayContainer; 
  
