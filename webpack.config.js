@@ -73,6 +73,10 @@ const config = {
       directory: path.join(__dirname, 'src'),
       publicPath: '/',
     },
+    proxy: {
+      '/user': 'http://localhost:3000',
+      '/workspace': 'http://localhost:3000'
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

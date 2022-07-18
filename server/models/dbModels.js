@@ -19,7 +19,7 @@ const userSchema = new Schema({
   },
   birthday: {
     type: Date,
-    required: true
+    // required: true
   },
   cookie: String,
   favorites: Array
