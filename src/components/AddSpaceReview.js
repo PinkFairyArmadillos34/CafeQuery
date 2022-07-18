@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Navbar, Nav} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap'
 
 const addSpaceReview = () => {
     const [name, setName] = useState('');
@@ -21,6 +23,30 @@ const addSpaceReview = () => {
     const [additional, setAdditional] = useState('');
 
     return (
+      <>
+      <Navbar className="navbar" expand="lg">
+            <LinkContainer to="/">
+  <Navbar.Brand>CafeQuery</Navbar.Brand>
+  
+  </LinkContainer>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="homepage">
+    <LinkContainer to="/">
+      <Nav.Link>Find A Location</Nav.Link>
+      </LinkContainer>
+
+      <LinkContainer to="/add">
+      <Nav.Link>Add a Location</Nav.Link>
+      </LinkContainer>
+
+      <LinkContainer to="/logIn">
+      <Nav.Link>Log In/Sign Up</Nav.Link>
+      </LinkContainer>
+     
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
         <div className='review'>
           <form className='location_submission'>
             <h1>Add a location</h1>
@@ -183,6 +209,7 @@ const addSpaceReview = () => {
             </button>
           </form>
         </div>
+        </>
       );
     };
 //submit post to db on submit
