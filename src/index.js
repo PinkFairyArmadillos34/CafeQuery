@@ -4,8 +4,8 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './store';
 
-// uncomment so that webpack can bundle styles
-//import styles from './scss/application.scss';
+import styles from './styles.scss';
+
 
 render(
 //wrap the App in the Provider Component and pass in the store
