@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import React from 'react';
+
 
 const displaySpaces = (props) => {
   
@@ -9,21 +9,21 @@ const displaySpaces = (props) => {
 
   return(
     <div className="LocationDisplay">
-      <h4>Name: {props.data.}</h4>
-      <h4>Address: {props.data.}</h4>
-      <h4>Overall Rating: {props.data}</h4>
-      <h4>Wifi:{props.data.}</h4>
-      <h4>Type:{props.data.}</h4>
-      <h4>Noise level:{props.data.}</h4>
-      <h4>Outlets{props.data.}</h4>
-      <h4>Time limit:{props.data.}</h4>
-      <h4>Laptop Restrictions:{props.data.}</h4>
-      <h4>Busy:{props.data.}</h4>
-      <h4>Outdoor Seating:{props.data.}</h4>
-      <h4>Pet friendly:{props.data.}</h4>
-      <h4>Food rating:{props.data.}</h4>
-      <h4>Coffee rating:{props.data.}</h4>
-      <h4>Seating:{props.data.}</h4>
+      <h4>Name: {props.resultObject.workspaceName}</h4>
+      <h4>Address: {props.resultObject.address}</h4>
+      <h4>Overall Rating: {props.resultObject.rating}</h4>
+      <h4>Wifi:{props.resultObject.wifi}</h4>
+      <h4>Type:{props.resultObject.type}</h4>
+      <h4>Noise level:{props.resultObject.quiet}</h4>
+      <h4>Outlets: {props.resultObject.outlets}</h4>
+      <h4>Time limit:{props.resultObject.timeLimit}</h4>
+      <h4>Laptop Restrictions:{props.resultObject.laptopRestrictions}</h4>
+      <h4>Busy:{props.resultObject.crowded}</h4>
+      <h4>Outdoor Seating:{props.resultObject.outdoorSeating}</h4>
+      <h4>Pet friendly:{props.resultObject.petFriendly}</h4>
+      <h4>Food rating:{props.resultObject.foodRating}</h4>
+      <h4>Coffee rating:{props.resultObject.coffeeRating}</h4>
+      <h4>Seating:{props.resultObject.seating}</h4>
     </div>
   );
 };
