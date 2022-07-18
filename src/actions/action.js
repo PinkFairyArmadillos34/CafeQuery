@@ -2,6 +2,7 @@
 // import actionType constants by type
 import * as types from '../constants/actionTypes';
 
+
 //functions to be used in dispatch
 export const addWorkSpace = workSpaceInfo => ({
   type: types.ADD_SPACE,
@@ -24,3 +25,4 @@ export const findWorkSpace = location => ({
   type: types.FIND_SPACE,
   payload: location
 });
+
