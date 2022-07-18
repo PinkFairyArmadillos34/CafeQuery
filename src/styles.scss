@@ -1,6 +1,58 @@
 $primary-color: white;
 $bg: black;
+$peach: #F6D78D;
+
+@import url('https://fonts.googleapis.com/css2?family=Twinkle+Star&display=swap');
+
 h1 {
   color: $primary-color;
   background-color: $bg;
 }
+
+.navbar{
+  background-color: #F6D78D;
+}
+
+.active.navbar-brand{
+  font-family: 'Twinkle Star';
+  font-size: 35px;
+}
+
+body{
+  background-image: url('./background.jpg');
+}
+
+.searchContainer {
+  margin: 200px auto;
+  width: 500px;
+  height: 60px
+}
+
+.searchForm {
+  display: flex;
+  // flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.search-field {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
