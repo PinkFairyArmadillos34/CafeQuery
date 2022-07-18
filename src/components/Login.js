@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -9,26 +11,25 @@ const Login = () => {
   // onclick function to send post request to server
   // if login is successful, do we need to add a cookie to local storage?
   // on signup, do we need to create and store a cookie for the user?
+  // add axios call to check user credentials against db on click of submit
   const handleLogin = (event) => {
-    let exists = false; 
+    // prevent page reload
+    event.preventDefault();
 
-    const loginInput = {
-      "username": username,
-      "password": password,
-      "zipcode": zipcode
-    }
+    const loginObj = {
+      username: username,
+      password: password,
+    };
 
-    if (!exists) {
-      
-    }
-    
-    // if user exists, 
-    if (exists) {
-      axios.post('/user', loginInput)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }
-  }
+    axios
+      .get(`/user/${username}`)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className='login'>
