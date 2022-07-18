@@ -46,6 +46,11 @@ const addSpaceReview = () => {
         'other': additional
       };
 
+      // TODO: edge cases to check if required fields aren't entered
+      if (name === '') {
+        alert('Please enter a valid workspace name.');
+      }
+
       // send POST request to server with new workspace info in body
       axios.post('/workspace', inputObj)
         .then(res => {

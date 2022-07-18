@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
 // set up a Schema for 'users' collection
 const userSchema = new Schema({
   username: {
@@ -17,10 +16,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  birthday: {
-    type: Date,
-    required: true
-  },
+  // birthday: {
+  //   type: Date,
+  //   required: true
+  // },
   cookie: String,
   favorites: Array
 });
