@@ -1,6 +1,6 @@
-// moved to containers section, per definition this will be the stateful component passing props to the others - Lyam
+// moved to containers section, per definition this will be the stateful component passing props to the components - Lyam
 //import { connect } from 'react-redux';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 //import * as actions from '../actions';
 

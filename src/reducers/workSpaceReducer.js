@@ -6,12 +6,29 @@
  // 1. intialize state
  // 2. return an update depending on the action
  const initialState = {
-
+   name: '',
+   address: '',
+   zipCode: '',
+   rating: '',
+   wifi: '',
+   type: '',
+   noise: '',
+   outlets: '',
+   time: '',
+   laptopChecked: false,
+   busy: '',
+   outdoorChecked: false,
+   petChecked: false,
+   url: '',
+   food: '',
+   coffee: '',
+   seating: '',
+   additional: '',
+   allSpaces: []
  };
  
  // setting a default parameter of state = initialState
  // workSpaceReducer is executed when dispatch is executed
- // the action creator dispatches an object to marketReducer
  
  const workSpaceReducer = (state = initialState, action) => {
    // checks action

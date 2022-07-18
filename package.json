@@ -14,7 +14,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
     "bcryptjs": "^2.3.0",
     "bootstrap": "^5.1.3",
