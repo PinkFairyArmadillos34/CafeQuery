@@ -49,6 +49,33 @@ const WorkspaceController = {
       });
   },
 
+  getWorkspaceByZip(req, res, next) {
+    // deconstruct the username that will be sent in the request parameter
+    console.log('Reached the get workspace by zip middleware.');
+
+    const { zipcodeSearch } = req.params;
+    if (typeof zipcodeSearch !== 'string' || zipcodeSearch.length !== 5){
+      return next({log: `User input error: entered input was less than 5 digits`,
+       message: {err: 'Please enter a 5 digit zipcode'}})
+    };
+
+
+    // finds workspace from the database
+    Workspace.find({zipcode: zipcodeSearch})
+      .then(data => {
+        res.locals.workspace = data;
+        console.log('Found workspace: ',data);
+        return next();
+      })
+      .catch(err => {
+        return next({
+          log: `Error occured in getWorkspaceByZip method of WorkspaceController : ${err}`,
+          status: 400,
+          message: { err: 'An error occured while trying to get workspace'}
+        });
+      });
+  },
+
   // Deletes the workspace from the database
   // workspace_id will be the parameter
   deleteWorkspace(req, res, next) {
