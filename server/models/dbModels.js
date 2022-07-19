@@ -36,19 +36,15 @@ const workspaceSchema = new Schema({
   },
   address: {
     type: String,
-    required: true
   },
   rating: {
     type: Number,
-    required: true
   },
   wifi: {
     type: String,
-    required: true
   },
   type: {
     type: String,
-    required: true
   },
   quiet: String,
   outlets: String,

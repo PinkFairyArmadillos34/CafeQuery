@@ -63,18 +63,68 @@ body {
   object-fit: cover;
 }
 
-.appDescription{
+.appDescription {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 3%;
-  color: $peach; 
+  color: $peach;
   text-align: center;
   font-size: 15px;
 }
 
-.icon{
+.icon {
   padding-right: 10px;
   padding-left: 10px;
+}
+
+.LocationDisplay {
+  color: white;
+  border: 1px solid white;
+  border-color: white;
+  border-width: 5px;
+  text-align: center;
+  margin-top: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-bottom: 30%; 
+}
+
+h4{
+  font-size: 20px;
+}
+
+.review {
+  color: white;
+  border: 1px solid white;
+  border-color: $peach;
+  border-width: 5px;
+  text-align: center;
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 30%; 
+  font-size: 25px !important;
+  padding: 50px 40px 50px 40px !important;
+}
+
+.login_form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 10px 35px 10px 15px !important;
+}
+
+h7{
+  color: $peach;
+  font-family: 'Twinkle Star';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+  font-size: 40px;
 }

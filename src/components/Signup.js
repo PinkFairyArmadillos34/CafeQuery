@@ -16,29 +16,11 @@ const Signup = () => {
       password: password,
       zipcode: zipcode,
     };
-
+    // request to server
     axios
       .post('/user', userInputObj)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    // check if username already exists
-    //let exists = true;
-
-    // since exists is set to true, do a get request to see if username is already in database
-    // if it is not in database, will got to catch error where we set exists equal to false
-    // since exists = false, go into else if and post the user to the database
-    // if (exists) {
-    //   axios.get(`/user/${username}`)
-    //     .then(res => console.log('User already exists', res))
-    //     .catch(err => {
-    //       exists = false;
-    //       console.log(err)
-    //     })
-    // } else if (!exists) {
-    //   axios.post('/user', userInputObj)
-    //     .then(res => console.log(res))
-    //     .catch(err => console.log(err));
-    // }
   };
 
   return (
