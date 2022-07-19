@@ -16,7 +16,7 @@ function App()  {
       <>
         <Router>
         <Navbar className="navbar" expand="lg">
-          <img src="./option1.png" className="icon" alt=""/>
+          <img src="./assets/option1.png" className="icon" alt=""/>
           <LinkContainer to="/">
               <Navbar.Brand>CafeQuery</Navbar.Brand>
           </LinkContainer>
