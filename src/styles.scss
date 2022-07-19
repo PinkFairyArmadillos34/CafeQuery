@@ -1,6 +1,6 @@
 $primary-color: white;
 $bg: black;
-$peach: #F6D78D;
+$peach: #f6d78d;
 
 @import url('https://fonts.googleapis.com/css2?family=Twinkle+Star&display=swap');
 
@@ -9,38 +9,44 @@ h1 {
   background-color: $bg;
 }
 
-.navbar{
-  background-color: #F6D78D;
+.navbar {
+  background-color: $peach;
 }
 
-.active.navbar-brand{
+.navbar-brand {
   font-family: 'Twinkle Star';
   font-size: 35px;
 }
 
-body{
+body {
   background-image: url('./background.jpg');
 }
 
 .searchContainer {
   margin: 200px auto;
   width: 500px;
-  height: 60px
+  height: 60px;
 }
 
 .searchForm {
+  height: 100%;
+  width: 100%;
   display: flex;
-  // flex-direction: row;
-  text-align: center;
   justify-content: center;
+  align-items: center;
 }
 
 .search-field {
-  width: 100%;
+  width: 35%;
   padding: 10px 35px 10px 15px;
   border: none;
   border-radius: 100px;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 300px;
+  font-family: 'Twinkle Star';
 }
 
 .search-button {
@@ -48,6 +54,7 @@ body{
   border: none;
   outline: none;
   margin-left: -33px;
+  margin-top: 300px;
 }
 
 .search-button img {
@@ -56,3 +63,18 @@ body{
   object-fit: cover;
 }
 
+.appDescription{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3%;
+  color: $peach; 
+  text-align: center;
+  font-size: 15px;
+}
+
+.icon{
+  padding-right: 10px;
+  padding-left: 10px;
+}

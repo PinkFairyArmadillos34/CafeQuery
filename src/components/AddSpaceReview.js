@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar, Nav} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap'
+import axios from 'axios';
 
 const addSpaceReview = () => {
     const [name, setName] = useState('');
@@ -22,46 +21,63 @@ const addSpaceReview = () => {
     const [seating, setSeating] = useState('');
     const [additional, setAdditional] = useState('');
 
+    // function to handle button click for add Space
+    const handleAddSpace = (event) => {
+      // we want to pass all of the input values to an object to pass to the db
+      const inputObj = {
+        'workspaceName': name,
+        'zipcode': zipCode,
+        'address': address,
+        'rating': rating,
+        'wifi': wifi,
+        'type': type,
+        'quiet': noise,
+        'outlets': outlets,
+        'timeLimit': time,
+        'laptopRestrictions': laptopChecked,
+        'crowded': busy,
+        'outdoorSeating': outdoorChecked,
+        'petFriendly': petChecked,
+        'url': url,
+        'foodRating': coffee,
+        'coffeeRating': food,
+        'seating': seating,
+        'other': additional
+      };
+
+      // TODO: edge cases to check if required fields aren't entered
+      if (name === '') {
+        alert('Please enter a valid workspace name.');
+      }
+
+      // send POST request to server with new workspace info in body
+      axios.post('/workspace', inputObj)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+    
     return (
       <>
-      <Navbar className="navbar" expand="lg">
-            <LinkContainer to="/">
-  <Navbar.Brand>CafeQuery</Navbar.Brand>
-  
-  </LinkContainer>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="homepage">
-    <LinkContainer to="/">
-      <Nav.Link>Find A Location</Nav.Link>
-      </LinkContainer>
 
-      <LinkContainer to="/add">
-      <Nav.Link>Add a Location</Nav.Link>
-      </LinkContainer>
-
-      <LinkContainer to="/logIn">
-      <Nav.Link>Log In/Sign Up</Nav.Link>
-      </LinkContainer>
-     
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
         <div className='review'>
           <form className='location_submission'>
             <h1>Add a location</h1>
             <input
-              type='name'
+              type='text'
               placeholder='Name'
               value={name}
               onChange={(e) => setName(e.target.value)} />
             <input
-              type='address'
+              type='text'
               placeholder='Street address'
               value={address}
               onChange={(e) => setAddress(e.target.value)}/>
             <input
-              type='zipCode'
+              type='text'
               placeholder='Zip code'
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
@@ -75,7 +91,7 @@ const addSpaceReview = () => {
                 <option value='2'>2</option>
                 <option value='3'>3</option>
                 <option value='4'>4</option>
-                <option value='5'>5</option>  
+                <option value='5'>5</option> 
                 </select>
             </label>
             <label>
@@ -204,7 +220,7 @@ const addSpaceReview = () => {
               placeholder='Other'
               value={additional}
               onChange={(e) => setAdditional(e.target.value)} />
-            <button type='submit' className='submit_btn'>
+            <button onClick={handleAddSpace} type='submit' className='submit_btn'>
                 Submit
             </button>
           </form>

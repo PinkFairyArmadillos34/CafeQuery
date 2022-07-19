@@ -15,6 +15,8 @@ const HomePage = () => {
 
   let locationsLoaded = false;
 
+
+
   // hanles event of clicking button for zip code search
   const handleAddZipcode = (event) => {
     // prevents page reload
@@ -36,6 +38,7 @@ const HomePage = () => {
   return (
       <>
           <Navbar className="navbar" expand="lg">
+          <img src="./containers/option1.png" className="icon" alt=""/>
           <LinkContainer to="/">
               <Navbar.Brand>CafeQuery</Navbar.Brand>
           </LinkContainer>
@@ -55,26 +58,22 @@ const HomePage = () => {
           </Navbar.Collapse>
           </Navbar>
 
-          
+
+     
+
+
+
           <div className="searchForm">
-              <input type="text" placeholder="Search" className="search-field" onChange={(e) => setSearch(e.target.value)}/>
+              <input type="text" placeholder="Search for a cafe or zipcode..." className="search-field" onChange={(e) => setSearch(e.target.value)}/>
               <button onClick={handleAddZipcode} type="submit" className="search-button">
               <img src="search.png"/>
               </button>
           </div>
+          <div className="appDescription">
+        <p>Looking for a place to work or study remotely? <br></br> 
+        <br></br>Use CafeQuery to search for a specific cafe, restaurant, or bar to see reviews from other remote workers. <br></br><br></br> You can also look up your zipcode to find workspaces near you!</p>
+      </div>
           <DisplayContainer locations={locations}/>
-        {/* <div>
-          {
-            locationsLoaded
-              ? <DisplayContainer locations={locations}/>
-              : <div className="searchForm">
-              <input type="text" placeholder="Search" className="search-field" onChange={(e) => setSearch(e.target.value)}/>
-              <button onClick={handleAddZipcode} type="submit" className="search-button">
-              <img src="search.png"/>
-              </button>
-            </div> 
-          }
-        </div> */}
       </>
   );
     
