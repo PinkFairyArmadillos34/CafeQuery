@@ -40,7 +40,7 @@ const HomePage = () => {
         <div className="searchForm">
             <input type="text" placeholder="Search for a cafe or zipcode..." className="search-field" onChange={(e) => setSearch(e.target.value)}/>
             <button onClick={handleAddZipcode} type="submit" className="search-button">
-            <img src="search.png"/>
+            <img src="../assets/search.png"/>
             </button>
         </div>
         <div className="appDescription">

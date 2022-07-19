@@ -7,7 +7,7 @@ const config = {
   mode: process.env.NODE_ENV || "production",
 
   entry: [
-    './src/index'
+    './client/index'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
