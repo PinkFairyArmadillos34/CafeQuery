@@ -55,6 +55,7 @@ const addSpaceReview = () => {
     // send POST request to server with new workspace info in body
     axios.post('/workspace', inputObj)
       .then(res => {
+        // panda whale - need something to respond so we know it successfully posted
         console.log(res);
       })
       .catch(err => {
@@ -228,15 +229,6 @@ const addSpaceReview = () => {
       </div>
       </>
     );
-  };
-//submit post to db on submit
+};
+
 export default addSpaceReview;
-
-  
-
-  
-
-
- 
-  
- 
