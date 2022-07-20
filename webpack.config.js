@@ -3,15 +3,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  
-  mode: process.env.NODE_ENV || "production",
-
-  entry: [
-    './src/index'
-  ],
+  mode: process.env.NODE_ENV,
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -20,18 +16,15 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        },        
-        exclude: /node_modules/
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
-        exclude: /\.module\.css$/
+        use: ['style-loader', 'css-loader'],
+        exclude: /\.module\.css$/,
       },
       {
         test: /\.png$/,
@@ -39,18 +32,14 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
@@ -60,28 +49,27 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true
-            }
-          }
+              modules: true,
+            },
+          },
         ],
-        include: /\.module\.css$/
-      }
-    ]
+        include: /\.module\.css$/,
+      },
+    ],
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'src'),
-      publicPath: '/',
+      directory: './dist',
     },
     proxy: {
       '/user': 'http://localhost:3000',
-      '/workspace': 'http://localhost:3000'
-    }
+      '/workspace': 'http://localhost:3000',
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '/index.html'),
-      filename: 'index.html',
+      title: 'Development',
+      template: './index.html',
     }),
   ],
 };
