@@ -1,10 +1,11 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
+  
   mode: process.env.NODE_ENV,
-  entry: ['./src/index.js'],
+
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -47,7 +48,7 @@ const config = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
+             options: {
               importLoaders: 1,
               modules: true,
             },
@@ -59,7 +60,8 @@ const config = {
   },
   devServer: {
     static: {
-      directory: './dist',
+      directory: path.join(__dirname, 'dist'),
+      publicPath: '/',
     },
     proxy: {
       '/user': 'http://localhost:3000',
@@ -73,5 +75,3 @@ const config = {
     }),
   ],
 };
-
-module.exports = config;
