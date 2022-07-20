@@ -1,11 +1,13 @@
 import React from 'react';
 
-const DisplaySpaces = (props) => {
+const Workspace = (props) => {
   //display information received in the result body 
   //from the databse query to locations
 
   const { workspaceName, address, rating, wifi, type, quiet, outlets, timeLimit, laptopRestrictions, crowded,
   outdoorSeating, petFriendly, foodRating, coffeeRating, seating} = props.resultObject;
+
+  console.log(props.resultObject);
 
   return(
     <>
@@ -30,4 +32,4 @@ const DisplaySpaces = (props) => {
   );
 };
 
-export default DisplaySpaces;
+export default Workspace;

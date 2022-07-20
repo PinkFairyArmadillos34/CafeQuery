@@ -1,14 +1,11 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
   
-  mode: process.env.NODE_ENV || "production",
+  mode: process.env.NODE_ENV,
 
-  entry: [
-    './client/index'
-  ],
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -85,5 +82,3 @@ const config = {
     }),
   ],
 };
-
-module.exports = config;
