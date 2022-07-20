@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env NODE_ENV=development nodemon server/sqlServer.js\"",
-    "start": "cross-env NODE_ENV=production nodemon server/index.js",
+    "start": "cross-env NODE_ENV=production nodemon server/sqlServer.js",
     "build": "webpack",
     "test": "jest"
   },
