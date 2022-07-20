@@ -5,7 +5,7 @@ const Workspace = (props) => {
   //from the databse query to locations
 
   const { workspaceName, address, rating, wifi, type, quiet, outlets, timeLimit, laptopRestrictions, crowded,
-  outdoorSeating, petFriendly, foodRating, coffeeRating, seating} = props.resultObject;
+  outdoorSeating, petFriendly, foodRating, coffeeRating, seating } = props.resultObject;
 
   const handleWorkspaceView = (e) => {
     console.log('handleWorkspaceView Clicked');
