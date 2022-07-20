@@ -47,6 +47,7 @@ app.use((err, req, res, next) => {
 
 
 if (process.env.NODE_ENV === 'production'){
+  console.log('call to dist in production')
   // statically serve everything in the dist folder on the route '/dist'
   app.use('/dist', express.static(path.join(__dirname, '../dist')));
   // serve index.html on the route '/'

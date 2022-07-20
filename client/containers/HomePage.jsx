@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import WorkspaceContainer from './WorkspaceContainer.jsx';
 //import * as actions from '../actions';
+import searchIcon from '../assets/search.png';
 
 const HomePage = () => {
   // removing this functionality to go into our workspace endpoint
@@ -31,7 +32,7 @@ const HomePage = () => {
       <div className="searchForm">
         <input type="text" placeholder="Search for a cafe or zipcode..." className="search-field" onChange={(e) => setSearch(e.target.value)}/>
         <button onClick={handleZipcodeSearch} type="submit" className="search-button">
-        <img src= "../client/assets/search.png" />
+        <img src = {searchIcon}/>
         </button>
       </div>
       <div className="appDescription">

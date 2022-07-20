@@ -10,13 +10,14 @@ import Login from './components/Login.jsx';
 // import Signup from './components/Signup.jsx';
 import { Navbar, Nav} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap'
+import option1 from './assets/option1.png';
 
 function App()  {
   return (
     <>
       <Router>        
         <Navbar className="navbar" expand="lg">
-          <img src="./assets/option1.png" className="icon" alt=""/>
+          <img src={option1} className="icon" alt=""/>
           <LinkContainer to="/">
               <Navbar.Brand>CafeQuery</Navbar.Brand>
           </LinkContainer>

@@ -55,7 +55,7 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
+             options: {
               importLoaders: 1,
               modules: true
             }
@@ -67,12 +67,14 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'src'),
+      directory: path.join(__dirname, 'dist'),
       publicPath: '/',
     },
     proxy: {
       '/user': 'http://localhost:3000',
-      '/workspace': 'http://localhost:3000'
+      '/workspace': 'http://localhost:3000',
+      compress: true,
+      port: 8080
     }
   },
   plugins: [

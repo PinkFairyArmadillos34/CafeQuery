@@ -7,11 +7,18 @@ const Workspace = (props) => {
   const { workspaceName, address, rating, wifi, type, quiet, outlets, timeLimit, laptopRestrictions, crowded,
   outdoorSeating, petFriendly, foodRating, coffeeRating, seating} = props.resultObject;
 
-  console.log(props.resultObject);
-
+  const handleWorkspaceView = (e) => {
+    console.log('handleWorkspaceView Clicked');
+    try {
+      
+    } catch (err) {
+      console.log('Error viewing workspace: ', err);
+    }
+  }
+  
   return(
     <>
-      <div className="LocationDisplay">
+      <div onClick={handleWorkspaceView} className="LocationDisplay">
         <h4>Name: {workspaceName}</h4> <br></br>
         <h4>Address: {address}</h4><br></br>
         <h4>Overall Rating: {rating}</h4><br></br>
