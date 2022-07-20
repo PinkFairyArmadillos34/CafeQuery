@@ -3,20 +3,21 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddSpaceReview from './components/AddSpaceReview';
-import DisplayContainer from './containers/DisplayContainer';
-import HomePage from './containers/HomePage';
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import AddSpaceReview from './components/AddSpaceReview.jsx';
+import WorkspaceContainer from './containers/WorkspaceContainer.jsx';
+import HomePage from './containers/HomePage.jsx';
+import Login from './components/Login.jsx';
+// import Signup from './components/Signup.jsx';
 import { Navbar, Nav} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap'
+import option1 from './assets/option1.png';
 
 function App()  {
-    return (
-      <>
-        <Router>
+  return (
+    <>
+      <Router>        
         <Navbar className="navbar" expand="lg">
-          <img src="./option1.png" className="icon" alt=""/>
+          <img src={option1} className="icon" alt=""/>
           <LinkContainer to="/">
               <Navbar.Brand>CafeQuery</Navbar.Brand>
           </LinkContainer>
@@ -35,20 +36,25 @@ function App()  {
           </Nav>
           </Navbar.Collapse>
           </Navbar>
+
           <Routes>
-            <Route path='/' element={<App />}></Route>
-              <Route index element ={< HomePage />}></Route>
-              <Route path='display' element ={< DisplayContainer />}></Route>
-              <Route path='add' element ={< AddSpaceReview />}></Route>
-              <Route path='login' element ={<Login />}></Route>
-              
+          <Route path='/' element={<App />}></Route>
+              <Route index element ={<HomePage />}></Route>
+              <Route path='/add' element ={<AddSpaceReview />}></Route>
+              <Route path='/login' element ={<Login />}></Route>
+
+              {/* 
+                Reviews implementation
+
+              - Given no display endpoint, we will now display all workspaces 
+                within a zipcode in our workspace endpoint
+              <Route path='/workspaces' element ={<WorkspaceContainer />}></Route>
+              */}
           </Routes>
-          
-        </Router>
-        </>
-   
-    );
-};
+      </Router>
+    </>
+  );
+}
 
 
 export default App;
