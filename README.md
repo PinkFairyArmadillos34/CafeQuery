@@ -1,7 +1,7 @@
 # CafeQuery
 Open source project to find the best cafes for study or work
 
-#Installation
+# Installation
 Fork and Clone the application.
 
 Copy and paste the following into your terminal:
